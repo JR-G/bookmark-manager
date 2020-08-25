@@ -30,3 +30,8 @@ As a user
 So that I can save pages that I like
 I want to add a bookmark to the bookmark manager
 ```
+```
+As a user
+So that I can remove a bookmark
+I want to delete a bookmark from the bookmark manager
+```
