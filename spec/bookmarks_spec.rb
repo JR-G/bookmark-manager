@@ -6,9 +6,9 @@ describe Bookmarks do
     it 'returns a list of bookmarks' do
       connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.google.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.bbc.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.twitter.com');")
+      Bookmarks.create(url: 'www.google.com', title: 'Google')
+      Bookmarks.create(url: 'www.bbc.com', title: 'BBC')
+      Bookmarks.create(url: 'www.twitter.com', title: 'Twitter')
 
       expect(described_class.all).to include 'www.google.com'
       expect(described_class.all).to include 'www.bbc.com'
@@ -18,9 +18,10 @@ describe Bookmarks do
 
   describe '.create' do
     it 'creates a new bookmark' do
-      Bookmarks.create(url: 'www.mytestsite.com')
+      bookmark = Bookmarks.create(url: 'www.mytestsite.com', title: 'Test Site').first
 
-      expect(Bookmarks.all).to include 'www.mytestsite.com'
+      expect(bookmark['url']).to eq 'www.mytestsite.com'
+      expect(bookmark['title']).to eq 'Test Site'
     end
   end
 
