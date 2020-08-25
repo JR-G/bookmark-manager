@@ -1,10 +1,9 @@
 feature 'viewing bookmarks' do
   before do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
 
-    connection.exec("INSERT INTO bookmarks VALUES(1, 'www.google.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(2, 'www.bbc.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(3, 'www.twitter.com');")
+    Bookmarks.create(url: 'www.google.com')
+    Bookmarks.create(url: 'www.bbc.com')
+    Bookmarks.create(url: 'www.twitter.com')
   end
   
   scenario 'user can view bookmarks' do

@@ -18,9 +18,9 @@ describe Bookmarks do
 
   describe '.create' do
     it 'creates a new bookmark' do
-      described_class.create(url: 'wwww.mytestsite.com')
+      Bookmarks.create(url: 'www.mytestsite.com')
 
-      expect(described_class.all).to include 'www.mytestsite.com'
+      expect(Bookmarks.all).to include 'www.mytestsite.com'
     end
   end
 
