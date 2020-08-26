@@ -1,0 +1,12 @@
+<form action='/bookmarks/<%= @bookmark_id %>' method='post'>
+  <input type="hidden" name="_method" value="PATCH">
+  <label for='url'>
+    Enter new URL:
+    <input type='text' name='url'>
+  </label>
+  <label for='title'>
+    Enter new Title:
+    <input type='text' name='title'>
+  </label>
+  <input type='submit' value='Update'>
+</form>
