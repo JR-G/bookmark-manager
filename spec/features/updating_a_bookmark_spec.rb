@@ -12,6 +12,7 @@ feature 'Updating a bookmark' do
     click_button 'Update'
 
     expect(current_path).to eq '/bookmarks'
+    expect(page).not_to have_link('Fix this URL', href: 'http://www.thisiswrong.com')
     expect(page).to have_link('Fix this URL', href: 'http://www.thisisright.com')
   end
 end
